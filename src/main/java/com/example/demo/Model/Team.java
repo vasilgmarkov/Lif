@@ -3,6 +3,7 @@ package com.example.demo.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import javax.persistence.GenerationType;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Date;
@@ -19,7 +20,7 @@ public class Team {
 
     @OneToMany(mappedBy = "team")
     private Set<Jugador> jugadores = new HashSet<>();
-    @Column
+
 
     //String description; identificador, nombre, localidad y fecha de creación.
 
@@ -39,7 +40,7 @@ public class Team {
         this.nombre=nombre;
     }
 
-    public String localidad(){
+    public String getlocalidad(){
         return localidad;
 
     }

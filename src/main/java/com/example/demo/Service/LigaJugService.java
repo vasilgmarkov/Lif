@@ -1,7 +1,6 @@
 package com.example.demo.Service;
 
 import com.example.demo.Model.Jugador;
-import com.example.demo.Model.Team;
 import com.example.demo.Repository.JugadorRepository;
 import com.example.demo.Repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +23,9 @@ public class LigaJugService {
 
   public void crearJugador(){
 
-    Team team1 = new Team();
-    team1.setNombre("Barcelona ");
-    teamRepository.save(team1);
+
+
+
 
 
     Jugador jugador1 = new Jugador();
@@ -39,14 +38,9 @@ public class LigaJugService {
     jugador1.setCanastas(260);
     jugador1.setAsistencias(30);
     jugador1.setRebotes(59);
-    jugador1.setTeam(team1);
     jugadorRepository.save(jugador1);
 
-    Team team2 = teamRepository.findOne(1L);
 
-
-    System.out.println(team2.getNombre());
-    System.out.println(team2.getJugadores());
 
     Jugador jugador2 = new Jugador();
     jugador2.setNombre("Juan Carlos Navarro");
@@ -96,7 +90,7 @@ public class LigaJugService {
     jugador5.setRebotes(483);
     jugadorRepository.save(jugador5);
 
-    System.out.println(jugadorRepository.findByNombreContaining("Aleksandar"));
+   System.out.println(jugadorRepository.findByNombreContaining("Aleksandar"));
     System.out.println(jugadorRepository.findByCanastasGreaterThanEqual(511));
     List<Jugador> jugadores = jugadorRepository.findByAsistenciasBetween(220, 300);
 
