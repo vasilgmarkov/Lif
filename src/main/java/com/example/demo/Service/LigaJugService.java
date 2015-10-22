@@ -27,7 +27,6 @@ public class LigaJugService {
 
 
 
-
     Jugador jugador1 = new Jugador();
     jugador1.setNombre("Aleksandar Vezenkov");
     Calendar cal=Calendar.getInstance();
@@ -92,12 +91,17 @@ public class LigaJugService {
 
    System.out.println(jugadorRepository.findByNombreContaining("Aleksandar"));
     System.out.println(jugadorRepository.findByCanastasGreaterThanEqual(511));
-    List<Jugador> jugadores = jugadorRepository.findByAsistenciasBetween(220, 300);
-
+    List<Jugador> jugadores = jugadorRepository.findByAsistenciasBetween(0, 300);
+    System.out.println();
+    System.out.println();
+    System.out.println();
     for (Jugador currentJugador : jugadores){
-      System.out.println("Nombre: " + currentJugador.getNombre() + "Asistencias: " + currentJugador.getAsistencias());
+      System.out.println("Equipo"+currentJugador.getTeam()+"Nombre: " + currentJugador.getNombre() + "Asistencias: " + currentJugador.getAsistencias());
     }
 
+    System.out.println();
+    System.out.println();
+    System.out.println();
   System.out.println(jugadorRepository.findByAsistenciasBetween(220, 300));
     System.out.println(jugadorRepository.findByPosicionLike("Base"));
 

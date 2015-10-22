@@ -12,11 +12,12 @@ public class LigaEndesaApplication {
     private static TeamServices teamServices;
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(LigaEndesaApplication.class, args);
-        jugadorService = context.getBean(LigaJugService.class);
+       jugadorService = context.getBean(LigaJugService.class);
         jugadorService.crearJugador();
 
         teamServices = context.getBean(TeamServices.class);
         teamServices.crearTeam();
+        teamServices.pruebaOk();
     }
 
 

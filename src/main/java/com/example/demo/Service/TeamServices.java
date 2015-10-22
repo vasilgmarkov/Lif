@@ -38,9 +38,9 @@ public class TeamServices {
         team2.setNombre("Madrid");
         team2.setLocalidad("Madrid");
         Calendar cal1=Calendar.getInstance();
-        cal1.set(1880, Calendar.SEPTEMBER, 10);
-        Date fechaCre11=cal.getTime();
-        team1.setFechaCreacion(fechaCre11);
+        cal1.set(1880, Calendar.MARCH, 10);
+        Date fechaCre1=cal1.getTime();
+        team2.setFechaCreacion(fechaCre1);
         teamRepository.save(team2);
         Jugador jugador = jugadorRepository.findByNombre("Aleksandar Vezenkov");
         jugador.setTeam(team1);
@@ -50,13 +50,20 @@ public class TeamServices {
         jugador1.setTeam(team2);
         jugadorRepository.save(jugador1);
 
+        System.out.println(jugadorRepository.findTitleById(1L));
 
+
+        System.out.println("aqui saldra vasio ");
         System.out.println(team1.getJugadores());
+
 
 
     }
 
-
+    public void pruebaOk(){
+        System.out.println("aqui saldra Ok ");
+        System.out.println(teamRepository.findByNombre("Barcelona").getJugadores());
+    }
 
 
 
