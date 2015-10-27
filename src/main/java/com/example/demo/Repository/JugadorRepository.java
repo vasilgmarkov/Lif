@@ -14,6 +14,7 @@ public interface JugadorRepository extends PagingAndSortingRepository<Jugador, L
     public Jugador findByNombre(String nombre);
     public List<Jugador> findByCanastasGreaterThanEqual(Integer canastas);
     public List<Jugador> findByAsistenciasBetween(Integer max, Integer min);
+    public List<Jugador> findByIdBetween(Long min, Long max);
     public List<Jugador> findByPosicionLike(String posicion);
     public List<Jugador> findByFechaNacimientoLessThan(Date fechaNacimiento);
     public List<Jugador> findByCanastasGreaterThanEqualAndFechaNacimientoLessThan(Integer canastas, Date fechaNacimiento);

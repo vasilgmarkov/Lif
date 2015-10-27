@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
 @Service
 @Transactional
 public class TeamServices {
@@ -50,8 +53,20 @@ public class TeamServices {
         jugador1.setTeam(team2);
         jugadorRepository.save(jugador1);
 
-        System.out.println(jugadorRepository.findTitleById(1L));
+        List <Team> teams = new ArrayList<>();
+        teams.add(team1);
+        teams.add(team2);
 
+        System.out.println(jugadorRepository.findTitleById(1L));
+        for (int i=0;i<2;i++){
+            List<Jugador> jugadores = jugadorRepository.findByIdBetween((2L*i)+1,(2L*i)+2);
+
+
+
+            for(Jugador jugadorActual : jugadores) {
+                jugadorActual.setTeam(teams.get(i));
+            }
+        }
 
         System.out.println("aqui saldra vasio ");
         System.out.println(team1.getJugadores());
@@ -62,7 +77,9 @@ public class TeamServices {
 
     public void pruebaOk(){
         System.out.println("aqui saldra Ok ");
-        System.out.println(teamRepository.findByNombre("Barcelona").getJugadores());
+        System.out.println(teamRepository.findByNombre("Barcelona").getJugadores()+"TUK");
+        System.out.println(teamRepository.findByNombre("Madrid").getJugadores()+"TUK");
+        System.out.println("aqui saldra Ok ");
     }
 
 

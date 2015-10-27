@@ -89,6 +89,9 @@ public class LigaJugService {
     jugador5.setRebotes(483);
     jugadorRepository.save(jugador5);
 
+
+
+
    System.out.println(jugadorRepository.findByNombreContaining("Aleksandar"));
     System.out.println(jugadorRepository.findByCanastasGreaterThanEqual(511));
     List<Jugador> jugadores = jugadorRepository.findByAsistenciasBetween(0, 300);
