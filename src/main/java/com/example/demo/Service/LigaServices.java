@@ -21,7 +21,7 @@ public class LigaServices {
     public void crearLiga(){
 
         Liga liga1 = new Liga();
-        liga1.setNombreLiga("MobStar");
+        liga1.setNombreLiga("MobStar1");
         ligaRepository.save(liga1);
 
 
