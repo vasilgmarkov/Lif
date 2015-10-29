@@ -116,4 +116,20 @@ public class LigaJugService {
 
 
   }
+  public void jugadorTeam(){
+    System.out.println("Hola");
+   List<Jugador> jugadores1 = jugadorRepository.findByNombre1("Barcelona");
+    System.out.println(jugadores1);
+    System.out.println();
+    System.out.println();
+    for (Jugador currentJugador : jugadores1){
+      System.out.println("Nombre: " + currentJugador.getNombre()+" VAAAA");
+    }
+
+    System.out.println();
+    System.out.println();
+    System.out.println("Hola");
+
+  }
+
 }

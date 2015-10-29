@@ -20,6 +20,12 @@
       <foreign-key name="FK_34hm4rp9vwxaw33apbrmxmarr" columns="team_id" ref-table="team" ref-schema="" ref-catalog="projectLiga" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="FK_34hm4rp9vwxaw33apbrmxmarr" unique="false" columns="team_id"/>
     </table>
+    <table name="liga" schema="" catalog="projectLiga" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="nombre_liga" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_59ytpcakp3tv6xxxl34v7p3nj" table="temporada" schema="" catalog="projectLiga" columns="liga_id"/>
+    </table>
     <table name="team" schema="" catalog="projectLiga" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="fecha_creacion" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
@@ -27,6 +33,24 @@
       <column name="nombre" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="FK_34hm4rp9vwxaw33apbrmxmarr" table="jugador" schema="" catalog="projectLiga" columns="team_id"/>
+      <exported-key name="FK_cu0vfda2nqlwb798ytahrduqw" table="temporada_team" schema="" catalog="projectLiga" columns="team_id"/>
+    </table>
+    <table name="temporada" schema="" catalog="projectLiga" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="fecha_temporada" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="liga_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_59ytpcakp3tv6xxxl34v7p3nj" columns="liga_id" ref-table="liga" ref-schema="" ref-catalog="projectLiga" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_7fe96s563xyhnfknq7t643xwt" table="temporada_team" schema="" catalog="projectLiga" columns="temporadas_id"/>
+      <index name="FK_59ytpcakp3tv6xxxl34v7p3nj" unique="false" columns="liga_id"/>
+    </table>
+    <table name="temporada_team" schema="" catalog="projectLiga" type="TABLE">
+      <column name="temporadas_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="team_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="temporadas_id,team_id"/>
+      <foreign-key name="FK_7fe96s563xyhnfknq7t643xwt" columns="temporadas_id" ref-table="temporada" ref-schema="" ref-catalog="projectLiga" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_cu0vfda2nqlwb798ytahrduqw" columns="team_id" ref-table="team" ref-schema="" ref-catalog="projectLiga" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_cu0vfda2nqlwb798ytahrduqw" unique="false" columns="team_id"/>
     </table>
   </data-source>
 </component>

@@ -33,9 +33,9 @@ public class TemporadaServices {
 
         Temporada temporada2 = new Temporada();
         Calendar cal2=Calendar.getInstance();
-        cal2.set(1996, Calendar.JANUARY, 1);
+        cal2.set(1998, Calendar.JANUARY, 1);
         Date fecha2 = cal2.getTime();
-        temporada1.setFechaTemporada(fecha2);
+        temporada2.setFechaTemporada(fecha2);
         temporadaRepository.save(temporada2);
 
 

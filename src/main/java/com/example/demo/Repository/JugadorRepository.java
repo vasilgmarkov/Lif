@@ -22,4 +22,7 @@ public interface JugadorRepository extends PagingAndSortingRepository<Jugador, L
    @Query("SELECT j.nombre FROM Jugador j where j.id = :id  ")
     String findTitleById(@Param("id") Long id);
 
+    @Query("SELECT j.nombre FROM Jugador j where j.team.nombre = :nombre ")
+    public List<Jugador> findByNombre1(@Param("nombre") String nombre);
+
 }

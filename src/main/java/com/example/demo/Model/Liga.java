@@ -20,8 +20,8 @@ public class Liga {
 
         protected String nombreLiga;
 
-        @ManyToMany(mappedBy = "Liga")
-        private Set<Temporada> temporada = new HashSet<>();
+        @OneToMany(mappedBy = "liga")
+        private Set<Temporada> temporadas = new HashSet<>();
 
     public Liga() {
 
@@ -43,12 +43,12 @@ public class Liga {
         this.nombreLiga = nombreLiga;
     }
 
-    public Set<Temporada> getTemporada() {
-        return temporada;
+    public Set<Temporada> getTemporadas() {
+        return temporadas;
     }
 
-    public void setTemporada(Set<Temporada> temporada) {
-        this.temporada = temporada;
+    public void setTemporadas(Set<Temporada> temporadas) {
+        this.temporadas = temporadas;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Liga {
         return "Liga{" +
                 "id=" + id +
                 ", nombreLiga='" + nombreLiga + '\'' +
-                ", temporada=" + temporada +
+
                 '}';
     }
 }

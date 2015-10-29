@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,8 +22,11 @@ public class Temporada {
 
     protected Date fechaTemporada;
 
+    @ManyToOne
+    private Liga liga;
+
     @ManyToMany
-    private Set<Liga> Liga = new HashSet<>();
+    private  Set<Team> team  = new HashSet<>();
 
 
     public Temporada() {
@@ -45,20 +49,29 @@ public class Temporada {
         this.fechaTemporada = fechaTemporada;
     }
 
-    public Set<com.example.demo.Model.Liga> getLiga() {
-        return Liga;
+    public Liga getLiga() {
+        return liga;
     }
 
-    public void setLiga(Set<com.example.demo.Model.Liga> liga) {
-        Liga = liga;
+    public void setLiga(Liga liga) {
+        this.liga = liga;
+    }
+
+    public Set<Team> getTeam() {
+        return team;
+    }
+
+    public void setTeam(Set<Team> team) {
+        this.team = team;
     }
 
     @Override
     public String toString() {
+
         return "Temporada{" +
                 "id=" + id +
                 ", fechaTemporada=" + fechaTemporada +
-                ", Liga=" + Liga +
+
                 '}';
     }
 }

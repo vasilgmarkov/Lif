@@ -45,13 +45,13 @@ public class TeamServices {
         Date fechaCre1=cal1.getTime();
         team2.setFechaCreacion(fechaCre1);
         teamRepository.save(team2);
-        Jugador jugador = jugadorRepository.findByNombre("Aleksandar Vezenkov");
+        /*Jugador jugador = jugadorRepository.findByNombre("Aleksandar Vezenkov");
         jugador.setTeam(team1);
         jugadorRepository.save(jugador);
 
         Jugador jugador1 = jugadorRepository.findByNombre("Michael Jeffrey Jordan");
         jugador1.setTeam(team2);
-        jugadorRepository.save(jugador1);
+        jugadorRepository.save(jugador1);*/
 
         List <Team> teams = new ArrayList<>();
         teams.add(team1);
@@ -80,6 +80,8 @@ public class TeamServices {
         System.out.println(teamRepository.findByNombre("Barcelona").getJugadores()+"TUK");
         System.out.println(teamRepository.findByNombre("Madrid").getJugadores()+"TUK");
         System.out.println("aqui saldra Ok ");
+
+
     }
 
 

@@ -21,6 +21,9 @@ public class Team {
     @OneToMany(mappedBy = "team")
     private Set<Jugador> jugadores = new HashSet<>();
 
+    @ManyToMany(mappedBy = "team")
+    private Set<Temporada> temporadas = new HashSet<>();
+
 
     //String description; identificador, nombre, localidad y fecha de creación.
 
@@ -40,10 +43,7 @@ public class Team {
         this.nombre=nombre;
     }
 
-    public String getlocalidad(){
-        return localidad;
 
-    }
 
     public void setLocalidad(String localidad){
         this.localidad=localidad;
@@ -66,6 +66,17 @@ public class Team {
         this.jugadores = jugadores;
     }
 
+    public Set<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
+    public void setTemporadas(Set<Temporada> temporadas) {
+        this.temporadas = temporadas;
+    }
+
+    public String getLocalidad() {
+        return localidad;
+    }
 
     @Override
     public String toString() {
@@ -74,6 +85,8 @@ public class Team {
                 ", nombre='" + nombre + '\'' +
                 ", localidad='" + localidad + '\'' +
                 ", fechaCreacion=" + fechaCreacion +
-                              '}';
+                ", jugadores=" + jugadores +
+                ", temporadas=" + temporadas +
+                '}';
     }
 }
