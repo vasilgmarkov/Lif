@@ -118,13 +118,11 @@ public class LigaJugService {
   }
   public void jugadorTeam(){
     System.out.println("Hola");
-   List<Jugador> jugadores1 = jugadorRepository.findByNombre1("Barcelona");
-    System.out.println(jugadores1);
+
+    System.out.println(jugadorRepository.findByNombreTeam("Barcelona")+"Por Nombre de Equipo");
     System.out.println();
     System.out.println();
-    for (Jugador currentJugador : jugadores1){
-      System.out.println("Nombre: " + currentJugador.getNombre()+" VAAAA");
-    }
+
 
     System.out.println();
     System.out.println();
@@ -132,4 +130,26 @@ public class LigaJugService {
 
   }
 
+  public void jugadorTeam2(){
+    System.out.println("Hola");
+    System.out.println( jugadorRepository.findByNombreTeamAndPosicion("Barcelona","Escolta") +" Por nombre de Equipo y Posicion" );
+
+
+
+    System.out.println();
+    System.out.println("Hola");
+
+    System.out.println( jugadorRepository.findFirstByOrderByCanastasDesc() +" Por max canastas" );
+
+    System.out.println();
+    System.out.println("Hola");
+
+    System.out.println( jugadorRepository.findFirst5ByOrderByAsistenciasDesc() +" Por max Asistencias" );
+
+    System.out.println();
+    System.out.println("Hola");
+
+    System.out.println( jugadorRepository.findFirstByOrderByCanastasDesc("Barcelona").get(0) +" Por max Canastas por Equipo" );
+
+  }
 }

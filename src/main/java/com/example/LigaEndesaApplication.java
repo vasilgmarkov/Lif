@@ -19,7 +19,7 @@ public class LigaEndesaApplication {
         ConfigurableApplicationContext context = SpringApplication.run(LigaEndesaApplication.class, args);
        jugadorService = context.getBean(LigaJugService.class);
         jugadorService.crearJugador();
-        jugadorService.jugadorTeam();
+
         temporadaServices = context.getBean(TemporadaServices.class);
         temporadaServices.crearTemporada();
         ligaServices = context.getBean(LigaServices.class);
@@ -28,6 +28,9 @@ public class LigaEndesaApplication {
         teamServices = context.getBean(TeamServices.class);
         teamServices.crearTeam();
         teamServices.pruebaOk();
+
+        jugadorService.jugadorTeam2();
+        jugadorService.jugadorTeam();
 
     }
 

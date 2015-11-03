@@ -77,6 +77,11 @@ public class TeamServices {
 
     public void pruebaOk(){
         System.out.println("aqui saldra Ok ");
+        System.out.println("aqui saldra Ok ");
+        List <Jugador> jugadores = jugadorRepository.findByNombreTeam("Madrid");
+
+        System.out.println("aqui saldra Ok ");
+        System.out.println("aqui saldra Ok ");
         System.out.println(teamRepository.findByNombre("Barcelona").getJugadores()+"TUK");
         System.out.println(teamRepository.findByNombre("Madrid").getJugadores()+"TUK");
         System.out.println("aqui saldra Ok ");
