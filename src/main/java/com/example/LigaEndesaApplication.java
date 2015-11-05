@@ -31,6 +31,7 @@ public class LigaEndesaApplication {
 
         jugadorService.jugadorTeam2();
         jugadorService.jugadorTeam();
+        teamServices.equipoTemporada();
 
     }
 
